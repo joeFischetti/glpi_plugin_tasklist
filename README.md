@@ -2,6 +2,8 @@
 
 This plugin was created as a way to automatically generate a list of ticket tasks based on a ticket category
 
+Some parts were adapted from the GLPI Plugin examples.
+
 Basic Usage:
  * Create new ticket categories via the setup -> dropdowns menu
  * Create a new task list via Setup -> Tasklist List Management
