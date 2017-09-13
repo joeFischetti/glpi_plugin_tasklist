@@ -1,5 +1,6 @@
          <root>
             <name>Tasklist Manager</name>
+            <key>GLPI</key>
             <state>beta</state> <!-- stable | unstable | beta | alpha -->
             <description>
                <short>
