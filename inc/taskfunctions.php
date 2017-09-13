@@ -1,6 +1,6 @@
 <?php
 define('STOCKUSER','175');
-define('GLPI3','http://10.10.5.252/glpi/apirest.php/');
+define('GLPI3','http://[SERVERIP]/glpi/apirest.php/');
 define('AUTHTOKEN', 'user_token 2cmkryd5n2bxn45dytpm9w2g4rmbkmf9kiv84vjf');
 define('APPTOKEN', 'degdksfw7jjsue3x2ad1ingftfjcf4tmowj2vtjj');
 define('AUTHHEADER', 'Authorization:  user_token 2cmkryd5n2bxn45dytpm9w2g4rmbkmf9kiv84vjf');
