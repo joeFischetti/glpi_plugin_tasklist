@@ -27,6 +27,15 @@
                
             </langs>
             <license>GPL v2+</license>
+            <tags>
+               <en>
+                  <tag>Tickets</tag>
+                  <tag>Tasks</tag>
+                  <tag>auto</tag>
+                  <tag>automatic</tag>
+                        
+               </en>
+            </tags>
             <screenshots>
             </screenshots>
          </root>
