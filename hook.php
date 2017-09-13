@@ -1,9 +1,5 @@
 <?php
-/**
- * Install hook
- *
- * @return boolean
- */
+
 function plugin_tasklist_install() {
 	global $DB;
 
@@ -21,19 +17,11 @@ function plugin_tasklist_install() {
 	return true;
 }
 
-/**
- * Uninstall hook
- *
- * @return boolean
- */
-
 function plugin_tasklist_uninstall() {
 	global $DB;  
 
  
-	$tables = [
-		'lists'
-		];
+	$tables = ['lists'];
 
 	foreach ($tables as $table) {
 		$tablename = 'glpi_plugin_tasklist_' . $table;
@@ -42,7 +30,6 @@ function plugin_tasklist_uninstall() {
 			$DB->query("DROP TABLE `$tablename`");
 		}
 	}
-
 
 	return true;
 }
@@ -85,21 +72,23 @@ function tasklist_addticket_called(Ticket $newTicket){
 	//Set the selectedCategoryArray to the one and only returned row
 	$selectedCategoryArray = $category->next();
 
+	//Write something to one of the log files
 	file_put_contents("/var/www/html/glpi/files/_log/tasklist", "Selected Category:  " . $selectedCategoryArray['name'] . "\n", FILE_APPEND);
 
 	//Query the database for a matching task list
 	$taskList = $DB->request("glpi_plugin_tasklist_lists", "name = '" . $selectedCategoryArray['name']."'");	
 	
-
+	//If one row didn't come back (0 or 2+), write to the log and return
 	if($taskList->numrows() != 1){
 		file_put_contents("/var/www/html/glpi/files/_log/tasklist", "Couldn't match category\n", FILE_APPEND);
 		file_put_contents("/var/www/html/glpi/files/_log/tasklist", "Number of rows returned:  " . $taskList->numrows() . "\n", FILE_APPEND);
 		return;
 	}
 
-
+	//Set the selected task array to the row that was returned
 	$selectedTaskListArray = $taskList->next();
 	
+	//If the task list isn't enabled, return
 	if($selectedTaskListArray['enabled'] != 1){
 		file_put_contents("/var/www/html/glpi/files/_log/tasklist", "Task is disabled\n", FILE_APPEND);
 		return;
@@ -128,8 +117,4 @@ function tasklist_addticket_called(Ticket $newTicket){
 
 		$DB->query($query);
 	}
-
-
 }
-
-
