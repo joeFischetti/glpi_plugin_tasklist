@@ -50,22 +50,21 @@ else if (isset($_POST['purge'])) {
 } 
 
 else {
-   //per default, display object
+   	//per default, display object
 	Html::header(
 		__('Custom Task List plugin', 'tasklist'),
 		$_SERVER['PHP_SELF'],
 		'config',
 		'PluginTasklistMenu',
 		'list'
-	);
+		);
 
 	$withtemplate = (isset($_GET['withtemplate']) ? $_GET['withtemplate'] : 0);
-	$object->display(
-		[
-		'id'           => $_GET['id'],
-		'withtemplate' => $withtemplate
-		]
-	);
+	$object->display([
+			'id'           => $_GET['id'],
+			'withtemplate' => $withtemplate
+			]
+		);
 	
 	Html::footer();
 }
