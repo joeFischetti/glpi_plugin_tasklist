@@ -1,6 +1,6 @@
 <?php
 
-define('TASKLIST_VERSION', '1.0.2');
+define('TASKLIST_VERSION', '1.0.5');
 
 
 function plugin_init_tasklist() {
